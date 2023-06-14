@@ -25,7 +25,7 @@ export default function Home() {
   }>({
     messages: [
       {
-        message: 'Hi, what would you like to learn about this legal case?',
+        message: 'مرحبًا ، ما الذي تود أن تعرفه؟',
         type: 'apiMessage',
       },
     ],
@@ -48,7 +48,7 @@ export default function Home() {
     setError(null);
 
     if (!query) {
-      alert('Please input a question');
+      alert('فضلا ادخل السؤال');
       return;
     }
 
@@ -106,7 +106,7 @@ export default function Home() {
       messageListRef.current?.scrollTo(0, messageListRef.current.scrollHeight);
     } catch (error) {
       setLoading(false);
-      setError('An error occurred while fetching the data. Please try again.');
+      setError('حصل خطأ... حاول مرة اخرى');
       console.log('error', error);
     }
   }
@@ -125,7 +125,7 @@ export default function Home() {
       <Layout>
         <div className="mx-auto flex flex-col gap-4">
           <h1 className="text-2xl font-bold leading-[1.1] tracking-tighter text-center">
-            Chat With Your Legal Docs
+            InfinityChat: AI Powered solution to chat with your data.
           </h1>
           <main className={styles.main}>
             <div className={styles.cloud}>
@@ -223,7 +223,7 @@ export default function Home() {
                     name="userInput"
                     placeholder={
                       loading
-                        ? 'Waiting for response...'
+                        ? 'بانتظار الاجابة...'
                         : 'What is this legal case about?'
                     }
                     value={query}
@@ -261,8 +261,8 @@ export default function Home() {
           </main>
         </div>
         <footer className="m-auto p-4">
-          <a href="https://twitter.com/mayowaoshin">
-            Powered by LangChainAI. Demo built by Mayo (Twitter: @mayowaoshin).
+          <a href="https://infinitychat.com">
+            InfinityChat.
           </a>
         </footer>
       </Layout>
