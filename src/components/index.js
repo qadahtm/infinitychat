@@ -1,4 +1,4 @@
-import Navbar from "./Navbar";
+import NavBar from "./NavBar";
 import Billing from "./Billing";
 import CardDeal from "./CardDeal";
 import Business from "./Bussiness";
@@ -15,7 +15,7 @@ import Teams from './Teams';
 
 export {
   Teams,
-  Navbar,
+  NavBar,
   Billing,
   CardDeal,
   Business,

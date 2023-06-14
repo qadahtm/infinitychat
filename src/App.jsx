@@ -1,12 +1,12 @@
 import styles from "./style";
-import { Teams, Pricing, Business, Clients, CTA, Footer, Navbar, Stats, Testimonials, Hero } from "./components";
+import { Teams, Pricing, Business, Clients, CTA, Footer, NavBar, Stats, Testimonials, Hero } from "./components";
 import { ScrollToTop } from 'react-simple-scroll-up'
 
 const App = () => (
   <div className="bg-primary w-full overflow-hidden">
     <div className={`${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
-        <Navbar />
+        <NavBar />
       </div>
     </div>
 
