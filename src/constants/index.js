@@ -189,12 +189,12 @@ export const socialMedia = [
 
 export const clients = [
   {
-    id: "client-1",
-    logo: UmmAlQura,
-  },
-  {
     id: "client-3",
     logo: univ2,
+  },
+  {
+    id: "client-1",
+    logo: UmmAlQura,
   },
   {
     id: "client-2",
