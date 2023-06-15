@@ -1,4 +1,4 @@
-import { UmmAlQura, dsnd, mohamed, mourad, tamir, ahmed, people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star  } from "../assets";
+import { UmmAlQura, univ, univ2, mohamed, mourad, tamir, ahmed, people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star  } from "../assets";
 // import { IoCheckmark } from 'react-icons/io5'
 
 
@@ -193,13 +193,13 @@ export const clients = [
     logo: UmmAlQura,
   },
   {
-    id: "client-2",
-    logo: dsnd,
+    id: "client-3",
+    logo: univ2,
   },
-  // {
-  //   id: "client-3",
-  //   logo: coinbase,
-  // },
+  {
+    id: "client-2",
+    logo: univ,
+  },
   // {
   //   id: "client-4",
   //   logo: dropbox,

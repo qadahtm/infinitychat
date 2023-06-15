@@ -30,8 +30,13 @@ import mourad from './mourad.webp';
 import mohamed from './mohamed.jpg';
 import UmmAlQura from './Umm_Al-Qura_University_logo.png';
 import dsnd from './ds-nd-logo-en.svg';
+import univ from './unvi.png';
+import univ2 from './unvi2.png';
+
 
 export {
+  univ,
+  univ2,
   dsnd,
   UmmAlQura,
   mohamed,
