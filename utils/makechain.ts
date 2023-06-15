@@ -23,7 +23,7 @@ Helpful answer in markdown:`);
 
 export const makeChain = (vectorstore: PineconeStore) => {
   const questionGenerator = new LLMChain({
-    llm: new OpenAI({ temperature: 0 }),
+    llm: new OpenAI({ temperature: 0.2 }),
     prompt: CONDENSE_PROMPT,
   });
 
@@ -40,6 +40,6 @@ export const makeChain = (vectorstore: PineconeStore) => {
     combineDocumentsChain: docChain,
     questionGeneratorChain: questionGenerator,
     returnSourceDocuments: true,
-    k: 4, //number of source documents to return. Change this figure as required.
+    k: 2, //number of source documents to return. Change this figure as required.
   });
 };
