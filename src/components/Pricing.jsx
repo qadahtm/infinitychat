@@ -94,9 +94,19 @@ const Pricing = () => {
     const background = '#1d1624'
     const popular = 'white'
     const checkMark = '#89ce94'
+    const basicPlan = 'https://infinitychat-zeta.vercel.app/';
 
     const handleClick = (e) => {
-        console.log(e)
+        console.log(e);
+        if(e === 'basic'){
+            window.open(basicPlan);
+        }
+        else if(e === 'standard'){
+            alert("coming soon")
+        }
+        else if(e === 'premium'){
+            alert("coming soon")
+        }
     }
 
     return (

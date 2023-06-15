@@ -28,8 +28,12 @@ import tamir from './tamir.webp';
 import ahmed from  './ahmed.webp';
 import mourad from './mourad.webp';
 import mohamed from './mohamed.jpg';
+import UmmAlQura from './Umm_Al-Qura_University_logo.png';
+import dsnd from './ds-nd-logo-en.svg';
 
 export {
+  dsnd,
+  UmmAlQura,
   mohamed,
   mourad,
   tamir,

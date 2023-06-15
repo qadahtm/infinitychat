@@ -1,4 +1,4 @@
-import { mohamed, mourad, tamir, ahmed, people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star  } from "../assets";
+import { UmmAlQura, dsnd, mohamed, mourad, tamir, ahmed, people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star  } from "../assets";
 // import { IoCheckmark } from 'react-icons/io5'
 
 
@@ -190,20 +190,20 @@ export const socialMedia = [
 export const clients = [
   {
     id: "client-1",
-    logo: airbnb,
+    logo: UmmAlQura,
   },
   {
     id: "client-2",
-    logo: binance,
+    logo: dsnd,
   },
-  {
-    id: "client-3",
-    logo: coinbase,
-  },
-  {
-    id: "client-4",
-    logo: dropbox,
-  },
+  // {
+  //   id: "client-3",
+  //   logo: coinbase,
+  // },
+  // {
+  //   id: "client-4",
+  //   logo: dropbox,
+  // },
 ];
 
 export const teams = [
@@ -320,6 +320,7 @@ export const teams = [
     ]
   }
 ]
+
 // export const plans = [
 //   {
 //       id: 'basic',

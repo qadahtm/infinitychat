@@ -4,13 +4,13 @@ import { ScrollToTop } from 'react-simple-scroll-up'
 
 const App = () => (
   <div className="bg-unified w-full overflow-hidden">
-    <div className={`${styles.paddingX} ${styles.flexCenter} bg-unified`}>
+    <div className={`${styles.paddingX} ${styles.flexCenter} bg-unified`} style={{position: "fixed", top: 0, zIndex: 100, width:"100%"}} >
       <div className={`${styles.boxWidth}`}>
         <NavBar />
       </div>
     </div>
 
-    <div className={`bg-unified ${styles.flexStart}`}>
+    <div className={`bg-unified ${styles.flexStart} mt-[100px]`}>
       <div className={`${styles.boxWidth}`}>
         <Hero />
       </div>
@@ -20,11 +20,9 @@ const App = () => (
       <div className={`${styles.boxWidth}`}>
         <Stats />
         <Business />
-        <Pricing />
-        {/* <Billing /> */}
-        {/* <CardDeal /> */}
-        <Testimonials />
         <Clients />
+        <Pricing />
+        <Testimonials />
         <Teams />
         <CTA />
         <Footer />
