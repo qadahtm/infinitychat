@@ -261,7 +261,7 @@ export default function Home() {
           </main>
         </div>
         <footer className="m-auto p-4">
-          <a href="https://infinitychat.com">
+          <a href="https://infinity-chat.vercel.app/">
             InfinityChat.
           </a>
         </footer>
