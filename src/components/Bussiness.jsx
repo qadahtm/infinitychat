@@ -33,7 +33,7 @@ const Business = () =>  (
         algorithms enable it to understand and translate multiple languages in 
         real-time, making it a powerful tool for global communication.
       </p>
-      <Button styles={`mt-10`} url="https://infinitychat-zeta.vercel.app" />
+      <Button styles={`mt-10`} url="#pricingPlan" />
     </div>
 
     <div className={`${layout.sectionImg} flex-col`}>

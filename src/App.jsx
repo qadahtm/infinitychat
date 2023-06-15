@@ -11,7 +11,7 @@ const App = () => (
     </div>
 
     <div className={`bg-unified ${styles.flexStart} mt-[100px]`}>
-      <div className={`${styles.boxWidth}`}>
+      <div className="flex-1">
         <Hero />
       </div>
     </div>
