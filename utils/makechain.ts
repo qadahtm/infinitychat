@@ -4,22 +4,22 @@ import { LLMChain, loadQAChain, ChatVectorDBQAChain } from 'langchain/chains';
 import { PromptTemplate } from 'langchain/prompts';
 
 const CONDENSE_PROMPT =
-  PromptTemplate.fromTemplate(`Given the following conversation and a follow up question, rephrase the follow up question to be a standalone question.
+  PromptTemplate.fromTemplate(`بالنظر إلى المحادثة التالية وسؤال المتابعة ، أعد صياغة سؤال المتابعة ليكون سؤالاً مستقلاً.
 
-Chat History:
+  تاريخ الدردشة:
 {chat_history}
-Follow Up Input: {question}
-Standalone question:`);
+متابعة المدخلات: {question}
+سؤال مستقل:`);
 
 const QA_PROMPT =
-  PromptTemplate.fromTemplate(`You are a helpful AI assistant. Use the following pieces of context to answer the question at the end.
-If you don't know the answer, just say you don't know. DO NOT try to make up an answer.
-If the question is not related to the context, politely respond that you are tuned to only answer questions that are related to the context.
+  PromptTemplate.fromTemplate(`أنت مساعد AI مفيد. استخدم أجزاء السياق التالية للإجابة على السؤال في النهاية.
+  إذا كنت لا تعرف الإجابة ، قل فقط أنك لا تعرف. لا تحاول اختلاق إجابة.
+  إذا لم يكن السؤال متعلقًا بالسياق ، فأجب بأدب أنك مضبوط للإجابة فقط على الأسئلة المتعلقة بالسياق.
 
 {context}
 
-Question: {question}
-Helpful answer in markdown:`);
+السؤال: {question}
+إجابة مفيدة:`);
 
 export const makeChain = (vectorstore: PineconeStore) => {
   const questionGenerator = new LLMChain({
