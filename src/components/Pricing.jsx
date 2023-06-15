@@ -62,7 +62,7 @@ const Pricing = () => {
         },
         {
             id: 'premium',
-            circle: 'E',
+            circle: 'P',
             title: 'Premium',
             subtitle: 'Optimized with Support',
             price: 'USD $55/mo',
