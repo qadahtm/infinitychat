@@ -210,26 +210,114 @@ export const teams = [
   {
     id: '1',
     image: mohamed,
-    name: "Mohamed Essabir",
-    role: "Developer"
+    name: "Mr. Mohamed Essabir",
+    role: "Student At Ensa El jadida",
+    socialMedia:[
+      {
+        id: "social-media-11",
+        icon: instagram,
+        link: "https://www.instagram.com/",
+      },
+      {
+        id: "social-media-21",
+        icon: facebook,
+        link: "https://www.facebook.com/",
+      },
+      {
+        id: "social-media-31",
+        icon: twitter,
+        link: "https://www.twitter.com/",
+      },
+      {
+        id: "social-media-41",
+        icon: linkedin,
+        link: "https://www.linkedin.com/",
+      },
+    ]
   },
   {
     id: '2',
     image: mourad,
-    name: "مراد مارس",
-    role: "Assistant Professor"
+    name: "Dr. Mourad Mars",
+    role: "Assistant Professor",
+    socialMedia:[
+      {
+        id: "social-media-12",
+        icon: instagram,
+        link: "https://www.instagram.com/",
+      },
+      {
+        id: "social-media-22",
+        icon: facebook,
+        link: "https://www.facebook.com/",
+      },
+      {
+        id: "social-media-32",
+        icon: twitter,
+        link: "https://www.twitter.com/",
+      },
+      {
+        id: "social-media-42",
+        icon: linkedin,
+        link: "https://www.linkedin.com/",
+      },
+    ]
   },
   {
     id: '3',
     image: tamir,
-    name: "ثامر قدح",
-    role: "أستاذ مساعد في علوم الحاسب الآلي و النظم البرمجية"
+    name: "Dr. Thamir Qadah",
+    role: "Assistant Professor",
+    socialMedia:[
+      {
+        id: "social-media-13",
+        icon: instagram,
+        link: "https://www.instagram.com/",
+      },
+      {
+        id: "social-media-23",
+        icon: facebook,
+        link: "https://www.facebook.com/",
+      },
+      {
+        id: "social-media-33",
+        icon: twitter,
+        link: "https://www.twitter.com/",
+      },
+      {
+        id: "social-media-43",
+        icon: linkedin,
+        link: "https://www.linkedin.com/",
+      },
+    ]
   },
   {
     id: '4',
     image: ahmed,
-    name: "أحمد الزهراني",
-    role: "استاذ مساعد"
+    name: "Dr. Ahmad Alzahrani",
+    role: "Assistant Professor",
+    socialMedia:[
+      {
+        id: "social-media-14",
+        icon: instagram,
+        link: "https://www.instagram.com/",
+      },
+      {
+        id: "social-media-24",
+        icon: facebook,
+        link: "https://www.facebook.com/",
+      },
+      {
+        id: "social-media-34",
+        icon: twitter,
+        link: "https://www.twitter.com/",
+      },
+      {
+        id: "social-media-44",
+        icon: linkedin,
+        link: "https://www.linkedin.com/",
+      },
+    ]
   }
 ]
 // export const plans = [

@@ -4,6 +4,7 @@ import {BsCreditCard} from 'react-icons/bs';
 import { IoCheckmark } from 'react-icons/io5'
 import {PricingTable} from '@aiherrera/react-pricing-table'
 // import plans from './constans/index';
+import { motion, AnimatePresence  } from 'framer-motion';
 
 
 const Pricing = () => {
@@ -15,7 +16,7 @@ const Pricing = () => {
             // subtitle: 'Hobyy',
             price: 'Free',
             // discount: '6,500',
-            buttonText: 'Select plan',
+            buttonText: 'Try it',
             popular: false,
             features: (
                 <ul>
@@ -105,24 +106,33 @@ const Pricing = () => {
                     Pricing plans <BsCreditCard />
                 </div>
             </h2>
-            <div className={`${styles.paragraph} w-[100%] flex-nowrap sm:flex-wrap`}>
-                <div className='flex justify-center mt-3'>
-                    <p className={styles.paragraph}> Select the best plan that suite for you.</p>
-                </div>
-                <PricingTable
-                    plans={plans}
-                    color={{
-                        main,
-                        features,
-                        font,
-                        fontInverted,
-                        background,
-                        popular,
-                        checkMark
-                    }}
-                    handleClick={handleClick}
-                />
-            </div>
+            <AnimatePresence>
+                <motion.div
+                    key="modal"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                >
+                    <div className={`${styles.paragraph} w-[100%] flex-nowrap sm:flex-wrap`}>
+                        <div className='flex justify-center mt-3'>
+                            <p className={styles.paragraph}> Select the best plan that suite for you.</p>
+                        </div>
+                            <PricingTable
+                                plans={plans}
+                                color={{
+                                    main,
+                                    features,
+                                    font,
+                                    fontInverted,
+                                    background,
+                                    popular,
+                                    checkMark
+                                }}
+                                handleClick={handleClick}
+                            />
+                    </div>
+                </motion.div>
+            </AnimatePresence>
         </section>
     )
 }

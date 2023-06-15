@@ -1,12 +1,12 @@
 import React,{useState} from 'react'
-import {close, InfinityChat, menu} from '../assets'
+import {close, logo, menu} from '../assets'
 import {navLinks} from '../constants'
 
 const NavBar = () => {
   const [toggle, setToggle] = useState(false)
   return (
     <nav className='w-full flex justify-between items-center navbar'>
-      <img src={InfinityChat} alt="hoobank" className='w-[124px]' />
+      <img src={logo} alt="hoobank" className='w-[124px]' />
       <ul className='list-none sm:flex hidden justify-end items-center flxe-1'>
         {
           navLinks.map((el, index)=>{

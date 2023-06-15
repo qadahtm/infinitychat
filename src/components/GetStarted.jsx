@@ -28,10 +28,10 @@ const GetStarted = () => {
 
   return(
     <div 
-      className={`${styles.flexCenter} w-[140px] h-[140px] rounded-full bg-blue-gradient p-[2px] cursor-pointer hover:opacity-75`}
+      className={`${styles.flexCenter} w-[140px] h-[140px] rounded-full bg-purple-gradient p-[2px] cursor-pointer hover:opacity-75`}
       >
       <div 
-        className={`${styles.flexCenter} flex-col bg-primary w-[100%] h-[100%] rounded-full`}
+        className={`${styles.flexCenter} flex-col bg-unified w-[100%] h-[100%] rounded-full`}
       >
         <a href="https://infinitychat-zeta.vercel.app/" className=''>
           <div className={`${styles.flexStart} flex-row`}>
@@ -42,7 +42,7 @@ const GetStarted = () => {
             <img src={arrowUp} className="w-[23px] h-[23px] object-contain" alt="" />
           </div>
           <p className="font-poppins font-medium text-[18px] leading-[23px]">
-              <span className="text-gradient">it now</span>
+              <span className="text-purple-gradient">it now</span>
           </p>
         </a>
       </div>

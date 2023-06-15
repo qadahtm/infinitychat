@@ -4,6 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* :root {
+  --black-gradient: linear-gradient(
+    144.39deg,
+    #ffffff -278.56%,
+    #6d6d6d -78.47%,
+    #11101d 91.61%
+  );
+  --card-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
+} */
+
 :root {
   --black-gradient: linear-gradient(
     144.39deg,
@@ -37,15 +48,6 @@
 }
 
 .text-gradient {
-  /* background: radial-gradient(
-    64.18% 64.18% at 71.16% 35.69%,
-    #def9fa 0.89%,
-    #bef3f5 17.23%,
-    #9dedf0 42.04%,
-    #7de7eb 55.12%,
-    #5ce1e6 71.54%,
-    #33bbcf 100%
-  ); */
   background: radial-gradient(
     64.18% 64.18% at 71.16% 35.69%,
     #9dedf0 0.89%,
@@ -61,6 +63,18 @@
   text-fill-color: transparent;
 }
 
+.text-purple-gradient{
+  background: radial-gradient(
+    circle,
+    rgba(196,113,237,1) 0%, 
+    rgba(223,177,246,1) 35%, 
+    rgba(31,194,215,1) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
 .bg-blue-gradient {
   background: linear-gradient(
     157.81deg,
@@ -73,12 +87,43 @@
   );
 }
 
+.bg-purple-gradient{
+  /* background: linear-gradient(
+    157.81deg,
+    #C471ED 43.27%,
+    #d897f8 21.24%,
+    #dfb1f6 12.19%,
+    #91eefa 29.82%,
+    #46d7eb 51.94%,
+    #1FC2D7 90.29%
+  ); */
+  background: linear-gradient(
+    90deg, 
+    rgba(196,113,237,1) 0%, 
+    rgba(223,177,246,1) 35%, 
+    rgba(31,194,215,1) 100%
+  );
+}
+
 .bg-black-gradient {
   background: linear-gradient(
     144.39deg,
     #ffffff -278.56%,
     #6d6d6d -78.47%,
     #11101d 91.61%
+  );
+}
+
+.bg-card-custom{
+  background-color: rgba(24,7,43,1);
+}
+
+.bg-unified{
+  background: rgb(70,28,118);
+  background: linear-gradient(90deg, 
+    rgba(24,7,43,1) 0%, 
+    rgb(42, 15, 72) 50%,
+    rgba(70,28,118,1) 100%
   );
 }
 
@@ -148,7 +193,8 @@
 }
 
 .feedback-card:hover {
-  background: var(--black-gradient);
+  /* background: var(--black-gradient); */
+  background: rgba(24,7,43,1);
 }
 
 .blue__gradient {
@@ -169,11 +215,14 @@
 .sc-gsTCUz{
   flex-direction: row !important;
   display: flex !important;
+  box-shadow: none !important;
 }
 
 .sc-gsTCUz > div{
   margin: 0 10px;
   min-width:300px;
+  background-color: rgba(24,7,43,1);
+  border: 1px solid rgba(196,113,237,1);
 }
 
 .sc-gsTCUz > div:hover{
