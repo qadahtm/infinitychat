@@ -15,7 +15,6 @@ export const run = async () => {
     /*load raw docs from the all files in the directory */
     const directoryLoader = new DirectoryLoader(filePath, {
       '.pdf': (path) => new CustomPDFLoader(path),
-      '.xlsx': (path) => new UnstructuredExcelLoader(path, mode = "elements"),
     });
 
     // const loader = new PDFLoader(filePath);
