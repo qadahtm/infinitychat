@@ -94,7 +94,7 @@ const Pricing = () => {
     const background = '#1d1624'
     const popular = 'white'
     const checkMark = '#89ce94'
-    const basicPlan = 'https://infinitychat-zeta.vercel.app/';
+    const basicPlan = 'https://infinitychat-c5r23xijj-mouradmars-s-team.vercel.app/';
 
     const handleClick = (e) => {
         console.log(e);
