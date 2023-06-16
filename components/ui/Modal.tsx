@@ -10,7 +10,7 @@ const Modal: React.FC<ModalProps> = ({ closeModal, children }) => {
     <div className="fixed inset-0 z-50 flex items-center justify-center">
       <div className="fixed inset-0 bg-black opacity-50"></div>
       <div className="relative max-w-sm mx-auto">
-        <div className="relative bg-white shadow-lg rounded-lg">
+        <div className="relative bg-white shadow-lg rounded-lg min-w-[500px]">
           <div className="px-4 py-4">
             <button
               className="absolute top-0 right-0 m-4 text-gray-500 hover:text-gray-700"

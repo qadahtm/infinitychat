@@ -126,7 +126,7 @@ function FileUploadComponent() {
                             </div>
                         </div>
                         <div className='flex justify-center my-3 py-3'>
-                            <button type="submit" className="flex gap-2 items-center bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow">
+                            <button type="submit" className="flex gap-2 items-center bg-purple-800 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow">
                                 <BsFillGearFill /> 
                                 <div>Train Your ChatBot</div>
                             </button>

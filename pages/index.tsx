@@ -202,10 +202,10 @@ export default function Home() {
                               <div key={`messageSourceDocs-${index}`}>
                                 <AccordionItem value={`item-${index}`}>
                                   <AccordionTrigger>
-                                    <h3 className='text-white'>Source {index + 1}</h3>
+                                    <h3 className='text-white'>{index + 1} المصدر</h3>
                                   </AccordionTrigger>
                                   <AccordionContent>
-                                    <ReactMarkdown linkTarget="_blank" className='text-white'>
+                                    <ReactMarkdown linkTarget="_blank" className='text-white text-end'>
                                       {doc.pageContent}
                                     </ReactMarkdown>
                                     {/* <p className="mt-2">
@@ -278,10 +278,11 @@ export default function Home() {
         </div>
         <footer className="m-auto p-4 text-white text-underline">
           <span className='mr-1'>Copyright Ⓒ 2023 </span>
-          <a href="https://infinitychat.com">
+          <a href="https://infinity-chat.vercel.app" className='text-purple-gradient'>
             InfinityChat
           </a>
           <span className='ml-1'>Team. All Rights Reserved.</span>
+          <div className='text-center'>LabLab Hackthon</div>
         </footer>
       </Layout>
     </>
