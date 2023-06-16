@@ -58,7 +58,7 @@ async function handler(message : any) {
   }
 }
 
-slimbot.on('edited_message', edited_message => {
+slimbot.on('edited_message', (edited_message: any) => {
   // reply when user edits a message
   slimbot.sendMessage(edited_message.chat.id, 'Message edited');
 });
