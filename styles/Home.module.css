@@ -1,3 +1,18 @@
+#editor::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Handle */
+#editor::-webkit-scrollbar-thumb {
+  background: rgba(196,113,237,1);
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+#editor::-webkit-scrollbar-thumb:hover {
+  background: rgb(182, 104, 221);
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -18,12 +33,22 @@
   position: relative;
 }
 
+.bg-purple-gradient{
+  background: linear-gradient(
+    90deg, 
+    rgba(196,113,237,1) 0%, 
+    rgba(223,177,246,1) 35%, 
+    rgba(31,194,215,1) 100%
+  );
+}
+
 .textarea {
   position: relative;
   resize: none;
   font-size: 1.1rem;
   padding: 1rem 2rem 1rem 2rem;
-  width: 75vw;
+  width: 100%;
+  /* max-width:100%; */
   border-radius: 0.5rem;
   border: 1px solid #d9d9e3;
   background: #ffffff;
@@ -80,11 +105,13 @@
   background: none;
 }
 
+
 .messagelist {
   width: 100%;
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
   border-radius: 0.5rem;
+  border:1px solid rgb(146, 119, 177) !important;
 }
 
 .messagelistloading {
@@ -161,6 +188,7 @@
   white-space: pre-wrap !important;
 }
 
+
 .markdownanswer ol,
 .markdownanswer ul {
   margin: 1rem;
@@ -193,7 +221,7 @@
   height: 65vh;
   background: #ffffff;
   border-radius: 0.5rem;
-  border: 1px solid #d9d9e3;
+  /* border: 1px solid #d9d9e3; */
   display: flex;
   justify-content: center;
   align-items: center;
