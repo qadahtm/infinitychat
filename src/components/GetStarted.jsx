@@ -33,7 +33,7 @@ const GetStarted = () => {
       <div 
         className={`${styles.flexCenter} flex-col bg-unified w-[100%] h-[100%] rounded-full`}
       >
-        <a href="https://infinitychat-zeta.vercel.app/" className=''>
+        <a href="https://infinitychat-c5r23xijj-mouradmars-s-team.vercel.app/" className=''>
           <div className={`${styles.flexStart} flex-row`}>
             <p className="font-poppins font-medium text-[18px] leading-[23px] mr-2">
               <span className="text-gradient">Try</span>
