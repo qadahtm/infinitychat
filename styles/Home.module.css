@@ -73,7 +73,7 @@
 .generatebutton {
   position: absolute;
   top: 0.87rem;
-  right: 1rem;
+  left: 7rem;
   color: rgb(165, 162, 162);
   background: none;
   padding: 0.3rem;
