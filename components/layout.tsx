@@ -16,6 +16,7 @@ import profile from '../assets/profile.png';
 import logo from "../assets/logo.png";
 import Image from 'next/image';
 import Link from 'next/link';
+import { FaRobot } from 'react-icons/fa';
 
 interface LayoutProps {
   children?: React.ReactNode;
@@ -118,23 +119,29 @@ export default function Layout({ children }: LayoutProps) {
                     <Image src={profile} alt="profile" width={30} />
                   </button>
                   {showUserOptions && (
-                    <div className="absolute right-0 mt-2 w-100 bg-white rounded shadow-lg">
-                      <button
-                        onClick={toggleUserOptions}
+                    <div className="absolute right-0 mt-2 w-100 bg-white rounded shadow-lg p-3">
+                      <div
                         className="block px-4 py-2 text-gray-800 hover:bg-gray-100 w-full text-left"
-                      >
+                        >
+                        <div className='text-gray-400'>Sign as:</div>
                         {user.email}
-                      </button>
+                      </div>
+                      <hr />
                       <button
                         onClick={handleCreateBot}
                         className="block px-4 py-2 text-gray-800 hover:bg-gray-100 w-full text-left"
                       >
-                        Create Your InfinityChatBot
+                        <div className='flex items-center gap-1'>
+                          <FaRobot />
+                          <div>
+                            Create Your Bot
+                          </div>
+                        </div>
                       </button>
                       <hr />
                       <button
                         onClick={handleLogout}
-                        className="block px-4 py-2 text-red-800 hover:bg-gray-100 w-full text-left"
+                        className="bg-red-600 block px-4 py-2 text-white hover:bg-red-400 w-full text-left rounded"
                       >
                         Logout
                       </button>

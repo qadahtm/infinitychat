@@ -15,7 +15,6 @@ import {
 
 import logo from "../assets/logo.png";
 
-
 export default function Home() {
   const [query, setQuery] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
@@ -203,15 +202,15 @@ export default function Home() {
                               <div key={`messageSourceDocs-${index}`}>
                                 <AccordionItem value={`item-${index}`}>
                                   <AccordionTrigger>
-                                    <h3>Source {index + 1}</h3>
+                                    <h3 className='text-white'>Source {index + 1}</h3>
                                   </AccordionTrigger>
                                   <AccordionContent>
-                                    <ReactMarkdown linkTarget="_blank">
+                                    <ReactMarkdown linkTarget="_blank" className='text-white'>
                                       {doc.pageContent}
                                     </ReactMarkdown>
-                                    <p className="mt-2">
+                                    {/* <p className="mt-2">
                                       <b>Source:</b> {doc.metadata.source}
-                                    </p>
+                                    </p> */}
                                   </AccordionContent>
                                 </AccordionItem>
                               </div>
@@ -227,7 +226,7 @@ export default function Home() {
             <div className={styles.center} style={{width: "100%"}}>
               <div className={styles.cloudform} style={{width: "100%"}}>
                 <div className='flex s:flex-wrap gap-2' style={{maxWidth: "100%"}}>
-                  <button type='button' className='bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full' onClick={handleReset}>Reset</button>
+                  <button type='button' className='bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full' onClick={handleReset}>إعادة ضبط</button>
                   <form onSubmit={handleSubmit} className='flex' style={{width: "100%"}}>
                     <textarea
                       disabled={loading}
@@ -245,7 +244,7 @@ export default function Home() {
                       }
                       value={query}
                       onChange={(e) => setQuery(e.target.value)}
-                      className={`${styles.textarea}`}
+                      className={`${styles.textarea} text-end`}
                     />
                     <button
                       type="submit"
@@ -257,13 +256,12 @@ export default function Home() {
                           <LoadingDots color="#000" />
                         </div>
                       ) : (
-                        // Send icon SVG in input field
                         <svg
                           viewBox="0 0 20 20"
-                          className={styles.svgicon}
+                          className={`${styles.svgicon} transform scale-x-[-1]`}
                           xmlns="http://www.w3.org/2000/svg"
                         >
-                          <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path>
+                          <path d="M9.106 2.553a1 1 0 011.788 0l7 14a1 1 0 01-1.169 1.409l-5-1.429A1 1 0 0111 15.571V11a1 1 0 00-2 0v4.571a1 1 0 01-.725.962l-5 1.428a1 1 0 01-1.17-1.408l7-14z"></path>
                         </svg>
                       )}
                     </button>
