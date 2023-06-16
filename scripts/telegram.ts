@@ -68,6 +68,6 @@ slimbot.startPolling();
 
 console.log('polling...');
 
-setTimeout(() => {
-  slimbot.stopPolling();
-}, 10000);
+// setTimeout(() => {
+//   slimbot.stopPolling();
+// }, 10000);
