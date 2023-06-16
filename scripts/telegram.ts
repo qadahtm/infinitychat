@@ -15,10 +15,9 @@ slimbot.on('message', message => {
 
 
 async function handler(message) {
-
   const history = "";
   const question = message.text;
-  // console.log(JSON.stringify(message));
+  console.log(JSON.stringify(message));
   // reply when user sends a message
   var rmsg = "";
   if (!question) {
