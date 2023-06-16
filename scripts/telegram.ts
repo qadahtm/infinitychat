@@ -48,7 +48,7 @@ async function handler(message : any) {
         chat_history: history || [],
       });
   
-      console.log('response', response);
+      // console.log('response', response);
       slimbot.sendMessage(message.chat.id, response.text);
     } catch (error: any) {
       console.log('error', error);
