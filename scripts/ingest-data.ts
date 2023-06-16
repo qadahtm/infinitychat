@@ -11,7 +11,6 @@ const filePath = 'docs/';
 
 export const run = async () => {
   try {
-    console.log("inside try")
     /*load raw docs from the all files in the directory */
     const directoryLoader = new DirectoryLoader(filePath, {
       '.pdf': (path) => new CustomPDFLoader(path),
