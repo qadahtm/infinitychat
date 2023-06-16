@@ -10,7 +10,7 @@ const inter = Inter({
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <main className={inter.variable}>
+      <main className={`${inter.variable} bg-black-gradient`}>
         <Component {...pageProps} />
       </main>
     </>
