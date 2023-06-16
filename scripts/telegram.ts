@@ -1,22 +1,30 @@
 // @ts-ignore
 
-import Slimbot from 'slimbot';
 import { OpenAIEmbeddings } from 'langchain/embeddings/openai';
 import { PineconeStore } from 'langchain/vectorstores/pinecone';
 import { makeChain } from '@/utils/makechain';
 import { pinecone } from '@/utils/pinecone-client';
 import { PINECONE_INDEX_NAME, PINECONE_NAME_SPACE } from '@/config/pinecone';
+import { Bot } from "grammy";
 
+// Create an instance of the `Bot` class and pass your bot token to it.
+const bot = new Bot(process.env['TELEGRAM_BOT_TOKEN'] || ""); // <-- put your bot token between the ""
 
-const slimbot = new Slimbot(process.env['TELEGRAM_BOT_TOKEN']);
+// You can now register listeners on your bot object `bot`.
+// grammY will call the listeners when users send messages to your bot.
 
-// Register listeners
-slimbot.on('message', (message: any) => {
-  handler(message);
-});
+// Handle the /start command.
+// bot.command("start", (ctx) => ctx.reply("Welcome! Up and running."));
+// Handle other messages.
+bot.on("message", (ctx) => handler(ctx.message, ctx));
 
+// Now that you specified how to handle messages, you can start your bot.
+// This will connect to the Telegram servers and wait for messages.
 
-async function handler(message : any) {
+// Start the bot.
+bot.start();
+
+async function handler(message : any, ctx : any) {
   const history = "";
   const question = message.text;
   // console.log(JSON.stringify(message));
@@ -49,25 +57,11 @@ async function handler(message : any) {
       });
   
       // console.log('response', response);
-      slimbot.sendMessage(message.chat.id, response.text);
+      ctx.reply(response.text);
     } catch (error: any) {
       console.log('error', error);
-      slimbot.sendMessage(message.chat.id, error.message || 'Something went wrong');
+      ctx.reply(error.message || 'Something went wrong');
     }
   
   }
 }
-
-slimbot.on('edited_message', (edited_message: any) => {
-  // reply when user edits a message
-  slimbot.sendMessage(edited_message.chat.id, 'Message edited');
-});
-
-// Call API
-slimbot.startPolling();
-
-console.log('polling...');
-
-// setTimeout(() => {
-//   slimbot.stopPolling();
-// }, 10000);
