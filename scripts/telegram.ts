@@ -1,3 +1,5 @@
+// @ts-ignore
+
 import Slimbot from 'slimbot';
 import { OpenAIEmbeddings } from 'langchain/embeddings/openai';
 import { PineconeStore } from 'langchain/vectorstores/pinecone';
@@ -9,12 +11,12 @@ import { PINECONE_INDEX_NAME, PINECONE_NAME_SPACE } from '@/config/pinecone';
 const slimbot = new Slimbot(process.env['TELEGRAM_BOT_TOKEN']);
 
 // Register listeners
-slimbot.on('message', message => {
+slimbot.on('message', (message: any) => {
   handler(message);
 });
 
 
-async function handler(message) {
+async function handler(message : any) {
   const history = "";
   const question = message.text;
   // console.log(JSON.stringify(message));
