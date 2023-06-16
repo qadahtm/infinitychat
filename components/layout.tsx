@@ -10,10 +10,12 @@ import {
 	signOut,
 	createUserWithEmailAndPassword,
 } from "firebase/auth";
+import { useRouter } from 'next/router';
 
 import profile from '../assets/profile.png';
 import logo from "../assets/logo.png";
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface LayoutProps {
   children?: React.ReactNode;
@@ -25,6 +27,7 @@ export default function Layout({ children }: LayoutProps) {
   const [user, setUser] = useState<User | null>(null);
   const [showUserOptions, setShowUserOptions] = useState(false);
 
+  const router = useRouter();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (authUser: User | null) => {
@@ -82,6 +85,9 @@ export default function Layout({ children }: LayoutProps) {
     }
   };
 
+  const handleCreateBot = () => {
+    router.push('/CreateInfinityChatBot');
+  }
 
   return (
     <div className="mx-auto flex flex-col space-y-4">
@@ -89,7 +95,7 @@ export default function Layout({ children }: LayoutProps) {
         <div className="h-16  py-4">
           <nav className="flex justify-between mx-4 px-6">
             <div className='flex'>
-              <a href="#" className="hover:text-slate-600 cursor-pointer">
+              <Link href="/" className="hover:text-slate-600 cursor-pointer">
                 <Image
                     src={logo}
                     alt="Me"
@@ -98,7 +104,7 @@ export default function Layout({ children }: LayoutProps) {
                     // className={styles.usericon}
                     priority
                   />
-              </a>
+              </Link>
             </div>
             <div className="flex gap-2">
             {user ? (
@@ -118,6 +124,12 @@ export default function Layout({ children }: LayoutProps) {
                         className="block px-4 py-2 text-gray-800 hover:bg-gray-100 w-full text-left"
                       >
                         {user.email}
+                      </button>
+                      <button
+                        onClick={handleCreateBot}
+                        className="block px-4 py-2 text-gray-800 hover:bg-gray-100 w-full text-left"
+                      >
+                        Create Your InfinityChatBot
                       </button>
                       <hr />
                       <button
