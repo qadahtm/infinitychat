@@ -17,7 +17,6 @@ import logo from "../assets/logo.png";
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaRobot } from 'react-icons/fa';
-import AuthCheck from '../hooks/useAuthentication';
 
 interface LayoutProps {
   children?: React.ReactNode;
@@ -146,8 +145,6 @@ export default function Layout({ children }: LayoutProps) {
                       </div>
                     )}
                 </div>
-              // <AuthCheck>
-              // </AuthCheck>
               ) : (
               <>
                 <button onClick={openSignupModal} className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">
