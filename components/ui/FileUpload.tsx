@@ -15,7 +15,7 @@ import {
 import { getDocument } from 'pdfjs-dist';
 import lablabQR from '../../assets/LAblabmeBot.png';
 
-const telegramBotUrl = 'https://t.me/alkhabeer_bot';
+const telegramBotUrl = 'https://t.me/lablabme_bot';
 
 
 function FileUploadComponent() {
