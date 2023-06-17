@@ -9,7 +9,6 @@ import { DirectoryLoader } from 'langchain/document_loaders/fs/directory';
 /* Name of directory to retrieve your files from */
 const filePath = 'docs/';
 
-// run should acccest a file as an argument
 export const run = async () => {
   try {
     /*load raw docs from the all files in the directory */
@@ -46,7 +45,7 @@ export const run = async () => {
   }
 };
 
-(async () => {
-  await run();
-  console.log('ingestion complete');
-})();
+// (async () => {
+//   await run();
+//   console.log('ingestion complete');
+// })();

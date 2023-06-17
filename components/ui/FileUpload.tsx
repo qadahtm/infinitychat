@@ -4,8 +4,18 @@ import Image from 'next/image';
 import {AiOutlineArrowLeft} from 'react-icons/ai';
 import {BsFillGearFill} from 'react-icons/bs';
 import {notify} from '../../utils/helpers';
+import {run} from '../../scripts/ingest-data';
+import {storage }from "../../utils/Firebase";
+import {
+    ref,
+    listAll,
+    uploadBytesResumable,
+    getDownloadURL,
+} from "firebase/storage";
+import { getDocument } from 'pdfjs-dist';
+import lablabQR from '../../assets/LAblabmeBot.png';
 
-const telegramBotUrl = 'https://t.me/alkhabeer_bot';
+const telegramBotUrl = 'https://t.me/lablabme_bot';
 
 
 function FileUploadComponent() {
@@ -16,11 +26,72 @@ function FileUploadComponent() {
     const fileInputRef:any = useRef(null);
     const logoInputRef:any = useRef(null);
     const [isLoading, setIsLoading] = useState(false);
+    const [persent, setPercent] = useState(0);
+    const [data, setData] = useState();
 
-    const handleFileChange = (event:any) => {
+    function fileToBinary(file: File): Promise<ArrayBuffer> {
+        return new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          
+          reader.onloadend = () => {
+            if (reader.readyState === FileReader.DONE) {
+              resolve(reader.result as Buffer);
+            }
+          };
+      
+          reader.onerror = () => {
+            reject(new Error('Failed to read file'));
+          };
+      
+          reader.readAsArrayBuffer(file);
+        });
+    }
+
+    const handleFileChange = async (event:any) => {
         const file = event.target.files[0];
         if (file && file.type === 'application/pdf') {
             setSelectedFile(file);
+            console.log("file: ", file);
+            // const binaryData = await fileToBinary(file);
+            // console.log(binaryData);
+            // setData(binaryData);
+            // upload file to firebase
+            // const storageRef = ref(storage, `/docs/${file.name}`);
+
+            // const uploadTask = uploadBytesResumable(storageRef, file);
+            // uploadTask.on(
+            //     "state_changed",
+            //     (snapshot) => {
+            //         const percent = Math.round(
+            //             (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+            //         );
+            //         // update progress
+            //         setPercent(percent);
+            //     },
+            //     (err) => console.log(err),
+            //     () => {
+            //         // download url
+            //         getDownloadURL(uploadTask.snapshot.ref).then(async(url) => {
+            //             // console.log(url);
+            //             // const response = await fetch(url, {
+            //             //     method: 'GET',
+            //             //     mode: 'no-cors',
+            //             // });
+            //             // const arrayBuffer = await response.arrayBuffer();
+            //             // console.log(arrayBuffer);
+            //             // const pdf = await getDocument(arrayBuffer).promise;
+            //             // console.log('Number of pages:', pdf.numPages);
+
+            //             // setPath(arrayBuffer);
+            //             const binaryData = await getBinaryDataFromURL(url);
+            //             const blobURL = createBlobURL(binaryData);
+            //             console.log('Blob URL:', blobURL);
+
+            //         });
+            //     }
+            // );
+
+            // sotre the path in a state
         } else {
             setSelectedFile(null);
             notify("Please select a valid PDF file.", 'error');
@@ -54,13 +125,11 @@ function FileUploadComponent() {
         if (selectedFile && name!== '' && selectedLogo) {
             try{
                 console.log("file: ", selectedFile);
-                // await runIngest();
-                // the only probelm i see here now
-                // is that the run method has to accept an argument
-                // which is a file that the user upload
-                // then that file will be used to uploded it to pinecone
+                // run the run function give it the path
+                // const binaryData = await fileToBinary(selectedFile);
+                // await run(binaryData);
+                // await run();
                 setGenerated(true);
-
                 notify('Bot Created', 'success');
             }catch(error){
                 notify(JSON.stringify(error), 'error');
@@ -164,7 +233,8 @@ function FileUploadComponent() {
                             <div className='flex justify-center my-3 py-3'>
                                 <div className=''>
                                     <div className='flex justify-center my-3'>
-                                        <QRCode value={telegramBotUrl}/>
+                                        {/* <QRCode value={telegramBotUrl}/> */}
+                                        <Image src={lablabQR} alt="qrCode" width={200}/>
                                     </div>
                                     <div className='flex justify-center my-3'>
                                         <span className='text-sm text-gray-400'>Scan Your QR code with your Phone</span>
