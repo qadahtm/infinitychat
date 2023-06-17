@@ -4,7 +4,7 @@ import FileUploadComponent from '@/components/ui/FileUpload';
 import useAuth from '../hooks/useAuthentication';
 import ErrorComponent from '../components/ui/Error';
 
-const infinityChatBot = () => {
+const InfinityChatBot = () => {
   const { user, loading, router } = useAuth();
 
   if (loading) {
@@ -23,4 +23,4 @@ const infinityChatBot = () => {
   )
 }
 
-export default infinityChatBot
+export default InfinityChatBot
