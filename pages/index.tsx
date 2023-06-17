@@ -193,7 +193,7 @@ export default function Home() {
                           </ReactMarkdown>
                         </div>
                       </div>
-                      {message.sourceDocs && (
+                      {/* {message.sourceDocs && (
                         <div
                           className="p-5"
                           key={`sourceDocsAccordion-${index}`}
@@ -213,16 +213,16 @@ export default function Home() {
                                     <ReactMarkdown linkTarget="_blank" className='text-white text-end'>
                                       {doc.pageContent}
                                     </ReactMarkdown>
-                                    {/* <p className="mt-2">
+                                    <p className="mt-2">
                                       <b>Source:</b> {doc.metadata.source}
-                                    </p> */}
+                                    </p>
                                   </AccordionContent>
                                 </AccordionItem>
                               </div>
                             ))}
                           </Accordion>
                         </div>
-                      )}
+                      )} */}
                     </>
                   );
                 })}
