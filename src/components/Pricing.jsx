@@ -22,23 +22,23 @@ const Pricing = () => {
                 <ul>
                     <li className='flex'>
                         <IoCheckmark />
-                        <span>Available when demand is low</span>
+                        <span>Single PDF</span>
                     </li>
                     <li className='flex'>
                         <IoCheckmark />
-                        <span>Standard response speed</span>
+                        <span>Max data size: 10 MB</span>
                     </li>
                     <li className='flex'>
                         <IoCheckmark />
-                        <span>Regular model updates</span>
+                        <span>Web-based chat</span>
                     </li>
                 </ul>
             )
         },
         {
-            id: 'standard',
-            circle: 'S',
-            title: 'Standard',
+            id: 'premium',
+            circle: 'P',
+            title: 'Premium',
             subtitle: 'Optimized',
             price: 'USD $20/mo',
             buttonText: 'Select plan',
@@ -47,23 +47,27 @@ const Pricing = () => {
             <ul>
                 <li className='flex'>
                     <IoCheckmark />
-                    <span>Available even when demand is high</span>
+                    <span>Up to 100 PDFs</span>
                 </li>
                 <li className='flex'>
                     <IoCheckmark />
-                    <span>Faster response speed</span>
+                    <span>Max data size: 1 GB</span>
                 </li>
                 <li className='flex'>
                     <IoCheckmark />
                     <span>Priority access to new features</span>
                 </li>
+                <li className='flex'>
+                    <IoCheckmark />
+                    <span>Web-based and Telegram </span>
+                </li>
             </ul>
             )
         },
         {
-            id: 'premium',
-            circle: 'P',
-            title: 'Premium',
+            id: 'custom',
+            circle: 'C',
+            title: 'Custom',
             subtitle: 'Optimized with Support',
             price: 'USD $55/mo',
             buttonText: 'Select plan',
@@ -72,15 +76,7 @@ const Pricing = () => {
             <ul>
                 <li className='flex'>
                     <IoCheckmark />
-                    <span>Lorem Ipsum</span>
-                </li>
-                <li className='flex'>
-                    <IoCheckmark />
-                    <span>Lorem Ipsum</span>
-                </li>
-                <li className='flex'>
-                    <IoCheckmark />
-                    <span>Lorem Ipsum</span>
+                    <span>Contact Us</span>
                 </li>
             </ul>
             )
