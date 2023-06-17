@@ -14,6 +14,8 @@ import {
 } from '@/components/ui/accordion';
 
 import logo from "../assets/logo.png";
+import {notify} from '../utils/helpers';
+
 
 export default function Home() {
   const [query, setQuery] = useState<string>('');
@@ -50,7 +52,7 @@ export default function Home() {
     setError(null);
 
     if (!query) {
-      alert('فضلا ادخل السؤال');
+      notify('فضلا ادخل السؤال', 'error')
       return;
     }
 
@@ -82,10 +84,10 @@ export default function Home() {
         }),
       });
       const data = await response.json();
-      console.log('data', data);
 
       if (data.error) {
         setError(data.error);
+        notify(JSON.stringify(data.error), 'error');
       } else {
         setMessageState((state) => ({
           ...state,
@@ -109,6 +111,7 @@ export default function Home() {
     } catch (error) {
       setLoading(false);
       setError('حصل خطأ... حاول مرة اخرى');
+      notify('حصل خطأ... حاول مرة اخرى', 'error')
       console.log('error', error);
     }
   }
@@ -123,6 +126,8 @@ export default function Home() {
       ],
       history: [],
     })
+    setError(null);
+    notify("Reset", 'success');
   }
 
   //prevent empty submissions

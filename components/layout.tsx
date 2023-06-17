@@ -5,18 +5,15 @@ import LoginForm from './ui/LoginForm';
 import { auth } from '../utils/Firebase';
 import { User } from 'firebase/auth';
 import { onAuthStateChanged } from "firebase/auth";
-import {
-	signInWithEmailAndPassword,
-	signOut,
-	createUserWithEmailAndPassword,
-} from "firebase/auth";
+import { signOut} from "firebase/auth";
 import { useRouter } from 'next/router';
-
 import profile from '../assets/profile.png';
 import logo from "../assets/logo.png";
 import Image from 'next/image';
 import Link from 'next/link';
 import { FaRobot } from 'react-icons/fa';
+import {notify} from '../utils/helpers';
+import {CiLogout} from 'react-icons/ci';
 
 interface LayoutProps {
   children?: React.ReactNode;
@@ -30,6 +27,7 @@ export default function Layout({ children }: LayoutProps) {
 
   const router = useRouter();
 
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (authUser: User | null) => {
       if (authUser) {
@@ -41,9 +39,12 @@ export default function Layout({ children }: LayoutProps) {
       }
     });
 
-    // Clean up the listener when the component unmounts
-    return () => unsubscribe();
+    return () => {
+      unsubscribe();
+    }
+
   }, []);
+
 
   const toggleUserOptions = () => {
     setShowUserOptions((prevShowUserOptions) => !prevShowUserOptions);
@@ -69,17 +70,14 @@ export default function Layout({ children }: LayoutProps) {
     try {
       signOut(auth)
         .then(() => {
-          // successMessage("Logout successful! 🎉");
-          window.location.href = '/';
+          notify("Logout successful! 🎉", 'success');
         })
         .catch((error) => {
-          // errorMessage("Couldn't sign out ❌");
-          alert("error");
+          notify("Couldn't sign out ❌", 'error');
       });
-      // Logout successful
     } catch (error) {
       console.log(error);
-      // Handle logout error
+      notify(JSON.stringify(error), 'error');
     }
   };
 
@@ -99,34 +97,31 @@ export default function Layout({ children }: LayoutProps) {
                     alt="Me"
                     width="60"
                     height="60"
-                    // className={styles.usericon}
                     priority
                   />
               </Link>
             </div>
             <div className="flex gap-2">
             {user ? (
-              // <button onClick={handleLogout} className="bg-red-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Logout</button>
                 <div className="relative">
                     <button
                       onClick={toggleUserOptions}
                       className="bg-gray-200 hover:bg-gray-100 text-white font-bold p-2 rounded-full focus:outline-none"
                     >
-                      {/* {user?.email.slice(0, 2)} */}
-                      <Image src={profile} alt="profile" width={30} />
+                      <Image src={profile} alt="profile" width={25} />
                     </button>
                     {showUserOptions && (
-                      <div className="absolute right-0 mt-2 w-100 bg-white rounded shadow-lg p-3">
+                      <div className="absolute right-0 mt-2 w-[250px] bg-white rounded shadow-lg p-3">
                         <div
                           className="block px-4 py-2 text-gray-800 hover:bg-gray-100 w-full text-left"
                           >
                           <div className='text-gray-400'>Sign as:</div>
-                          {user.email}
+                          {user.email?.split('@')[0]}
                         </div>
                         <hr />
                         <button
                           onClick={handleCreateBot}
-                          className="block px-4 py-2 text-gray-800 hover:bg-gray-100 w-full text-left"
+                          className="block px-4 py-4 text-gray-800 hover:bg-gray-100 w-full text-left"
                         >
                           <div className='flex items-center gap-1'>
                             <FaRobot />
@@ -138,9 +133,12 @@ export default function Layout({ children }: LayoutProps) {
                         <hr />
                         <button
                           onClick={handleLogout}
-                          className="bg-red-600 block px-4 py-2 text-white hover:bg-red-400 w-full text-left rounded"
+                          className="flex items-center gap-1 bg-red-600 block px-4 py-2 text-white hover:bg-red-400 w-full text-left rounded"
                         >
-                          Logout
+                          <CiLogout /> 
+                          <div>
+                            Logout
+                          </div>
                         </button>
                       </div>
                     )}

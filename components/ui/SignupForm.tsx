@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { auth } from '../../utils/Firebase';
 import {
-	signInWithEmailAndPassword,
-	signOut,
 	createUserWithEmailAndPassword,
 } from "firebase/auth";
+import {notify} from '../../utils/helpers';
 
 
 interface SignupFormProps {
@@ -22,22 +21,20 @@ const SignupForm: React.FC<SignupFormProps> = ({ closeModal }) => {
     try {
     //   await auth.createUserWithEmailAndPassword(email, password);
         createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                // successMessage("Account created 🎉");
-                // router.push("/login");
-                window.location.href = '/';
-            })
-            .catch((error) => {
-                console.error(error);
-                alert(error);
-                // errorMessage("Account creation declined ❌");
+          .then((userCredential) => {
+              const user = userCredential.user;
+              notify("Account created 🎉", "success");
+          })
+          .catch((error) => {
+            console.error(error);
+            alert(error);
+            notify("Account creation declined ❌", "error");
         });
       // Handle successful signup
-      closeModal(); // Close the modal after successful signup
+      closeModal();
     } catch (error) {
       console.error('Signup error:', error);
-      // Handle signup error
+      notify(JSON.stringify(error), "error");
     }
   };
 
@@ -87,7 +84,7 @@ const SignupForm: React.FC<SignupFormProps> = ({ closeModal }) => {
         <div className="flex justify-center">
           <button
             type="submit"
-            className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+            className="cursor-pointer bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
           >
             Sign Up
           </button>

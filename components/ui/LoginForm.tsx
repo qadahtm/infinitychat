@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 import { auth } from '../../utils/Firebase';
-import {
-	signInWithEmailAndPassword,
-	signOut,
-	createUserWithEmailAndPassword,
-} from "firebase/auth";
+import { signInWithEmailAndPassword} from "firebase/auth";
+import {notify} from '../../utils/helpers';
 
 interface LoginFormProps {
   closeModal: () => void;
@@ -13,27 +10,28 @@ interface LoginFormProps {
 const LoginForm: React.FC<LoginFormProps> = ({ closeModal }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-    //   await auth.signInWithEmailAndPassword(email, password);
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                // successMessage("Authentication successful 🎉");
-                window.location.href = '/';
-            })
-            .catch((error) => {
-                console.error(error);
-                alert("hi")
-                // errorMessage("Incorrect Email/Password ❌");
-            });
-      // Handle successful login
-      closeModal(); // Close the modal after successful login
+      setLoading(true);
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            setLoading(false);
+            notify("Authentication successful 🎉", "success");
+        })
+        .catch((error) => {
+            console.error(error);
+            setLoading(false);
+            notify("Incorrect Email/Password ❌", "error");
+        });
+      closeModal();
     } catch (error) {
+      setLoading(false);
       console.error('Login error:', error);
-      // Handle login error
+      notify(JSON.stringify(error), "error");
     }
   };
 
@@ -70,9 +68,9 @@ const LoginForm: React.FC<LoginFormProps> = ({ closeModal }) => {
         <div className="flex justify-center">
           <button
             type="submit"
-            className=" bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+            className={`cursor-pointer bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded`}
           >
-            Login
+            {!loading ? <span>Login</span> : <span>Loggin...</span>}
           </button>
         </div>
       </form>
@@ -81,43 +79,3 @@ const LoginForm: React.FC<LoginFormProps> = ({ closeModal }) => {
 };
 
 export default LoginForm;
-
-
-
-// // LoginForm.tsx
-
-// import React, { useState } from 'react';
-// import { auth } from '../../utils/Firebase';
-
-// const LoginForm: React.FC = () => {
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
-
-//   const handleLogin = async (e: React.FormEvent) => {
-//     e.preventDefault();
-//     try {
-//       await auth.signInWithEmailAndPassword(email, password);
-//       // Handle successful login
-//     } catch (error) {
-//       console.error('Login error:', error);
-//       // Handle login error
-//     }
-//   };
-
-//   return (
-//     <form onSubmit={handleLogin}>
-//       <h2>Login</h2>
-//       <div>
-//         <label htmlFor="email">Email:</label>
-//         <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-//       </div>
-//       <div>
-//         <label htmlFor="password">Password:</label>
-//         <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-//       </div>
-//       <button type="submit">Login</button>
-//     </form>
-//   );
-// };
-
-// export default LoginForm;
