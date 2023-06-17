@@ -325,6 +325,9 @@ export const teams = [
   }
 ]
 
+
+export const URL_App = 'https://infinitychat-1zg68h74z-mouradmars-s-team.vercel.app/';
+
 // export const plans = [
 //   {
 //       id: 'basic',

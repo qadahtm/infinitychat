@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../style'
 import {arrowUp} from '../assets'
+import { URL_App } from '../constants/index';
+
 
 const GetStarted = () => {
   // const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -33,7 +35,7 @@ const GetStarted = () => {
       <div 
         className={`${styles.flexCenter} flex-col bg-unified w-[100%] h-[100%] rounded-full`}
       >
-        <a href="https://infinitychat-c5r23xijj-mouradmars-s-team.vercel.app/" className=''>
+        <a href={URL_App} className=''>
           <div className={`${styles.flexStart} flex-row`}>
             <p className="font-poppins font-medium text-[18px] leading-[23px] mr-2">
               <span className="text-gradient">Try</span>

@@ -5,7 +5,7 @@ import { IoCheckmark } from 'react-icons/io5'
 import {PricingTable} from '@aiherrera/react-pricing-table'
 // import plans from './constans/index';
 import { motion, AnimatePresence  } from 'framer-motion';
-
+import { URL_App } from '../constants/index';
 
 const Pricing = () => {
     const plans = [
@@ -90,12 +90,11 @@ const Pricing = () => {
     const background = '#1d1624'
     const popular = 'white'
     const checkMark = '#89ce94'
-    const basicPlan = 'https://infinitychat-c5r23xijj-mouradmars-s-team.vercel.app/';
 
     const handleClick = (e) => {
         console.log(e);
         if(e === 'basic'){
-            window.open(basicPlan);
+            window.open(URL_App);
         }
         else if(e === 'standard'){
             alert("coming soon")
