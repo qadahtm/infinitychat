@@ -3,6 +3,7 @@ import QRCode from 'qrcode.react';
 import Image from 'next/image';
 import {AiOutlineArrowLeft} from 'react-icons/ai';
 import {BsFillGearFill} from 'react-icons/bs';
+import {notify} from '../../utils/helpers';
 
 const telegramBotUrl = 'https://t.me/alkhabeer_bot';
 
@@ -14,14 +15,15 @@ function FileUploadComponent() {
     const [generated, setGenerated] = useState(false);
     const fileInputRef:any = useRef(null);
     const logoInputRef:any = useRef(null);
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleFileChange = (event:any) => {
         const file = event.target.files[0];
         if (file && file.type === 'application/pdf') {
-        setSelectedFile(file);
+            setSelectedFile(file);
         } else {
-        setSelectedFile(null);
-        // You can display an error message or perform other actions for invalid file types
+            setSelectedFile(null);
+            notify("Please select a valid PDF file.", 'error');
         }
     };
 
@@ -41,26 +43,36 @@ function FileUploadComponent() {
         if (validExtensions.includes(fileType)) {
             setSelectedLogo(file);
         } else {
-            alert('Please select a valid JPG, PNG or JPEG file.');
+            notify("Please select a valid JPG, PNG or JPEG file.", 'error');
             setSelectedLogo(null);
         }
     };
 
-    const handleSubmit = (event:any) => {
+    const handleSubmit = async(event:any) => {
         event.preventDefault();
-        console.log("name: ", name);
-        console.log("log: ", selectedLogo);
-        console.log("data: ", selectedFile);
-
-
-        // Execute your logic using the selected file
+        setIsLoading(true);
         if (selectedFile && name!== '' && selectedLogo) {
-        // Example: Log the file details
+            try{
+                console.log("file: ", selectedFile);
+                // await runIngest();
+                // the only probelm i see here now
+                // is that the run method has to accept an argument
+                // which is a file that the user upload
+                // then that file will be used to uploded it to pinecone
+                setGenerated(true);
+
+                notify('Bot Created', 'success');
+            }catch(error){
+                notify(JSON.stringify(error), 'error');
+            }
             setName("");
             setSelectedFile(null);
             setSelectedLogo(null);
-            console.log('Selected file:', selectedFile);
-            setGenerated(true);
+            setIsLoading(false);
+        }
+        else{
+            notify('Please fill all the Data!', 'error');
+            setIsLoading(false)
         }
     };
 
@@ -79,7 +91,6 @@ function FileUploadComponent() {
         <form onSubmit={handleSubmit}>
             <div className="flex justify-center items-center h-screen">
                 { !generated ?
-
                     <div className="bg-white p-8 rounded-lg shadow w-[500px]">
                         <div className="flex items-center gap-3 justify-center mb-4 text-black">
                             <span>Bot Name: </span>
@@ -126,9 +137,13 @@ function FileUploadComponent() {
                             </div>
                         </div>
                         <div className='flex justify-center my-3 py-3'>
-                            <button type="submit" className="flex gap-2 items-center bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow">
+                            <button type="submit" className="flex gap-2 items-center bg-purple-800 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg shadow">
                                 <BsFillGearFill /> 
-                                <div>Train Your ChatBot</div>
+                                {!isLoading ? 
+                                    <div>Train Your ChatBot</div>
+                                :
+                                    <div>Loading...</div>
+                                }
                             </button>
                         </div>
                     </div>
@@ -149,7 +164,7 @@ function FileUploadComponent() {
                             <div className='flex justify-center my-3 py-3'>
                                 <div className=''>
                                     <div className='flex justify-center my-3'>
-                                        <QRCode value={telegramBotUrl} />
+                                        <QRCode value={telegramBotUrl}/>
                                     </div>
                                     <div className='flex justify-center my-3'>
                                         <span className='text-sm text-gray-400'>Scan Your QR code with your Phone</span>

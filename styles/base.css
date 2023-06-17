@@ -4,12 +4,12 @@
 
 /* Track */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
   }
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: #888;
+    background: rgba(70,28,118,1);
     border-radius: 5px;
   }
   
@@ -48,5 +48,5 @@ header {
 }
 
 .bg-editor{
-    background-color: rgb(146, 119, 177);
+    background-color: rgb(95, 59, 135);
 }
