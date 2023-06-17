@@ -87,7 +87,7 @@ export default function Layout({ children }: LayoutProps) {
 
   return (
     <div className="mx-auto flex flex-col space-y-4">
-      <header className="container sticky top-0 z-40  bg-card-custom shadow-lg">
+      <header className="bg-black-gradient container sticky top-0 z-40  bg-card-custom">
         <div className="h-16  py-4">
           <nav className="flex justify-between mx-4 px-6">
             <div className='flex'>
