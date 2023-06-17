@@ -6,7 +6,7 @@ import coinbase from "./coinbase.png";
 import dropbox from "./dropbox.png";
 import logo from "./logo.png";
 import quotes from "./quotes.svg";
-import robot from "./robot.png";
+import robot from "./robotC.png";
 import send from "./Send.svg";
 import shield from "./Shield.svg";
 import star from "./Star.svg";
@@ -32,9 +32,10 @@ import UmmAlQura from './Umm_Al-Qura_University_logo.png';
 import dsnd from './ds-nd-logo-en.svg';
 import univ from './unvi.png';
 import univ2 from './unvi2.png';
-
+import Lablabme_logo from './Lablabme_logo.jpg';
 
 export {
+  Lablabme_logo,
   univ,
   univ2,
   dsnd,

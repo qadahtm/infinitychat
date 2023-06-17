@@ -1,4 +1,4 @@
-import { UmmAlQura, univ, univ2, mohamed, mourad, tamir, ahmed, people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star  } from "../assets";
+import { Lablabme_logo, UmmAlQura, univ, univ2, mohamed, mourad, tamir, ahmed, people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star  } from "../assets";
 // import { IoCheckmark } from 'react-icons/io5'
 
 
@@ -200,6 +200,10 @@ export const clients = [
     id: "client-2",
     logo: univ,
   },
+  {
+    id: 'client-3',
+    logo: Lablabme_logo
+  }
   // {
   //   id: "client-4",
   //   logo: dropbox,
@@ -320,6 +324,9 @@ export const teams = [
     ]
   }
 ]
+
+
+export const URL_App = 'https://infinitychat-1zg68h74z-mouradmars-s-team.vercel.app/';
 
 // export const plans = [
 //   {
