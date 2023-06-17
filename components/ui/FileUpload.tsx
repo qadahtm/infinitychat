@@ -4,7 +4,6 @@ import Image from 'next/image';
 import {AiOutlineArrowLeft} from 'react-icons/ai';
 import {BsFillGearFill} from 'react-icons/bs';
 import {notify} from '../../utils/helpers';
-import {run} from '../../scripts/ingest-data';
 
 const telegramBotUrl = 'https://t.me/alkhabeer_bot';
 
@@ -49,16 +48,18 @@ function FileUploadComponent() {
         }
     };
 
-    const handleSubmit = async (event:any) => {
+    const handleSubmit = async(event:any) => {
         event.preventDefault();
         setIsLoading(true);
         if (selectedFile && name!== '' && selectedLogo) {
             try{
-                // await run();
+                console.log("file: ", selectedFile);
+                // await runIngest();
                 // the only probelm i see here now
                 // is that the run method has to accept an argument
                 // which is a file that the user upload
                 // then that file will be used to uploded it to pinecone
+                setGenerated(true);
 
                 notify('Bot Created', 'success');
             }catch(error){
@@ -67,7 +68,6 @@ function FileUploadComponent() {
             setName("");
             setSelectedFile(null);
             setSelectedLogo(null);
-            setGenerated(true);
             setIsLoading(false);
         }
         else{
@@ -164,7 +164,7 @@ function FileUploadComponent() {
                             <div className='flex justify-center my-3 py-3'>
                                 <div className=''>
                                     <div className='flex justify-center my-3'>
-                                        <QRCode value={telegramBotUrl} />
+                                        <QRCode value={telegramBotUrl}/>
                                     </div>
                                     <div className='flex justify-center my-3'>
                                         <span className='text-sm text-gray-400'>Scan Your QR code with your Phone</span>
